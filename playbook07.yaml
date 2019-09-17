@@ -1,0 +1,16 @@
+---
+- name: Learning to download images to be used in a cloud
+  hosts: futurama
+  gather_facts: yes
+  
+  tasks:
+          - name: create directory
+            file:
+                    path: ~/tmp/images
+                    state: directory
+
+          - name: Get URL
+            get_url:
+                    url: http://download.cirros-cloud.net/0.4.0/cirros-0.4.0-x86_64-disk.img
+                    dest: ~/tmp/images
+

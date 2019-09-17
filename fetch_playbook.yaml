@@ -1,0 +1,27 @@
+- name: Learning about the fetch module
+  hosts: futurama
+  vars:
+          batman:
+                  - Gordon
+                  - Barbara
+                  - Riddler
+                  - Joker
+                  - Clayface
+          superman:
+                  - Lois
+                  - Doomsday
+                  - Zod  
+
+  tasks:
+          - name: Employ the fetch module to grab a file
+            fetch:
+                    src: secondfloor.txt
+                    dest: /tmp/secondfloor.txt.{{ inventory_hostname }}
+                    flat: yes
+
+          - name: Learn to print stuff to the screen
+            debug:
+                    # msg: "Just want to print my message to the screen"
+                    msg: This person is a character in batman {{ item }}
+
+            loop: "{{ batman }}"
