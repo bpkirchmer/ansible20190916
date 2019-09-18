@@ -1,0 +1,9 @@
+---
+- name: Playbook with line in file
+  hosts: localhost
+
+  vars:
+          fileloc: "~/sys.log"
+
+  tasks:
+

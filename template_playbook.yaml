@@ -1,0 +1,22 @@
+---
+- name: Learning about template module
+  hosts: futurama
+
+  #vars_files (next)
+  vars:
+          ship_name: Bessie
+          ship_type: Intergalatic
+          engines: Dark Matter
+          fuel: 100
+          price: 500
+
+ tasks:
+         - name: "Create the directory to place our finished ship.cfg in"
+           file:
+                   state: directory
+                   path: ~/config/
+
+         - name: "Complete a configuration file"
+           template:
+                   src: templates/ship.cfg.j2
+                   dest: ~/config/ship.cfg 

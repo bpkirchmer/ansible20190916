@@ -1,0 +1,6 @@
+---
+- name: Learning about template module
+  hosts: futurama
+
+  #vars_files (next)
+  vars:
